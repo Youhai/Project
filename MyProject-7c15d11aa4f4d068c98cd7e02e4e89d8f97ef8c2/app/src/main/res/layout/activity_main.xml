@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".Activities.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/input_layout_destination"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="14dp"
+        android:background="#FFFFFF"
+        android:elevation="6dp">
+
+        <AutoCompleteTextView
+            android:id="@+id/search_places"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:hint="Search location"
+            android:imeOptions="actionDone"
+            android:paddingBottom="15dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="15dp"
+            android:singleLine="true"
+            android:textColor="@color/blue_text"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <fragment
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:id="@+id/map"
+        android:layout_below="@id/input_layout_destination"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/check_forecast"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/blue_text"
+        android:gravity="center"
+        android:text="Check Forecast"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
+</RelativeLayout>
