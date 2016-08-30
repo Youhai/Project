@@ -2,6 +2,7 @@ package com.google.youhai.myinterviewproject.Activities;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
@@ -59,8 +60,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
     //class attributes
-    private MapFragment mapFragment;
-    private TextView checkForecast;
     private LatLng chosenLocation;
     private LatLng selectedLocation;
     private AutoCompleteTextView searchPlace;
@@ -85,13 +84,21 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
+        MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 //        View mapView = mapFragment.getView();
 
 
-        checkForecast = (TextView) findViewById(R.id.check_forecast);
+        TextView checkForecast = (TextView) findViewById(R.id.check_forecast);
         searchPlace = (AutoCompleteTextView) findViewById(R.id.search_places);
+
+        checkForecast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,ForecastDetailsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         getCurrentLocation();
         chosenLocation = DataCenter.getInstance().getChosenLocation();
@@ -183,10 +190,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     @Override
                     public void onResponse(JSONObject response) {
 
-//                        Log.e(TAG, "Weather Response: " + response);
                         WeatherJSONParser parser = new WeatherJSONParser();
                         ArrayList<ForecastModel> forecastModelArrayList = parser.parseResponseFromLatLong(response);
-//                        Log.d(TAG, "TEST " + forecastModelArrayList.size());
                         DataCenter.getInstance().setForecastModelArrayList(forecastModelArrayList);
 
                         String weatherState = forecastModelArrayList.get(0).getMain();
@@ -313,10 +318,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onMapLongClick(LatLng latLng) {
 
-
-                Log.d(TAG,"New marker added@" + latLng.toString());
                 DataCenter.getInstance().setChosenLocation(latLng);
-                Log.d(TAG,"New marker added@" +DataCenter.getInstance().getChosenLocation().toString());
                 centerMapWithChosenLocation(latLng,googleMap);
                 getForecastTask(latLng);
             }

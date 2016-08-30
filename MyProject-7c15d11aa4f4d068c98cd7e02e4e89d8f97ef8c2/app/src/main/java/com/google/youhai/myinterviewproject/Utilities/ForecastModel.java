@@ -1,8 +1,6 @@
 package com.google.youhai.myinterviewproject.Utilities;
 
-/**
- * Created by youhai on 8/13/16.
- */
+
 public class ForecastModel {
 
     private String main;

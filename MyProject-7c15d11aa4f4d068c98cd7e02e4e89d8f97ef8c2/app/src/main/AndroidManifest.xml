@@ -27,7 +27,7 @@
 
             </intent-filter>
         </activity>
-
+        <activity android:name=".Activities.ForecastDetailsActivity" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/map_api_key" />

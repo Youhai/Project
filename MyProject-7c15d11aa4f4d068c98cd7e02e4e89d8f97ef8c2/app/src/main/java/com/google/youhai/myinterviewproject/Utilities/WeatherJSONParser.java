@@ -12,9 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.TimeZone;
 
-/**
- * Created by youhai on 8/13/16.
- */
+
 public class WeatherJSONParser {
 
     private ArrayList<ForecastModel> forecastModelsList;

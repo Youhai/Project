@@ -114,12 +114,8 @@ public class PlacesAutoCompleteAdapter extends ArrayAdapter<PlaceModel> implemen
             while ((read = in.read(buff)) != -1) {
                 jsonResults.append(buff, 0, read);
             }
-        } catch (MalformedURLException e) {
-            Log.e(TAG, "Error processing Places API URL", e);
-            return resultList;
         } catch (IOException e) {
-            Log.e(TAG, "Error connecting to Places API", e);
-            return resultList;
+           e.printStackTrace();
         } finally {
             if (conn != null) {
                 conn.disconnect();

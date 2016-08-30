@@ -2,23 +2,26 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="20dp"
-    android:paddingRight="20dp"
-    android:paddingTop="20dp">
+    android:paddingBottom="16dp"
+    android:paddingStart="8dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="16dp">
 
     <ImageView
         android:id="@+id/iv_forecast"
         android:layout_width="120dp"
         android:layout_height="100dp"
-        android:paddingLeft="30dp" />
+        android:paddingStart="32dp"
+        android:paddingEnd="16dp"
+        />
 
     <TextView
         android:id="@+id/tv_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_toRightOf="@+id/iv_forecast"
-        android:hint="main"
+        android:paddingStart="32dp"
+        android:paddingEnd="16dp"
+        android:layout_toEndOf="@+id/iv_forecast"
         android:textColor="@color/blue_text"
         android:textSize="20sp" />
 
@@ -27,9 +30,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_main"
-        android:layout_marginLeft="20dp"
-        android:layout_toRightOf="@+id/iv_forecast"
-        android:hint="min_max"
+        android:paddingStart="32dp"
+        android:paddingEnd="16dp"
+        android:layout_toEndOf="@+id/iv_forecast"
         android:textColor="@color/blue_text"
         android:textSize="16sp" />
 
@@ -38,9 +41,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/tv_temp"
-        android:layout_marginLeft="50dp"
-        android:layout_toRightOf="@id/tv_temp"
-        android:hint="date"
+        android:paddingStart="32dp"
+        android:paddingEnd="16dp"
+        android:layout_toEndOf="@id/tv_temp"
         android:textSize="16sp" />
 
 </RelativeLayout>

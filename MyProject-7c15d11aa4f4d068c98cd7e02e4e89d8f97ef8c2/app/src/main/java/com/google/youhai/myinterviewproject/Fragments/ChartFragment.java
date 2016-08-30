@@ -31,7 +31,7 @@ import java.util.List;
 
 
 public class ChartFragment extends Fragment {
-    private CombinedChart mChart;
+
     List<ForecastModel> forecastModelArrayList;
 
     private int itemcount;
@@ -54,8 +54,8 @@ public class ChartFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.combined_chart, container, false);
-        mChart = (CombinedChart) view.findViewById(R.id.chart1);
-        mChart.setDescription("Demo");
+        CombinedChart mChart = (CombinedChart) view.findViewById(R.id.chart1);
+//        mChart.setDescription("description");
         mChart.setBackgroundColor(Color.WHITE);
         mChart.setDrawGridBackground(false);
         mChart.setDrawBarShadow(false);
@@ -81,8 +81,7 @@ public class ChartFragment extends Fragment {
         data.setData(generateLineData());
         data.setData(generateBarData());
         data.setData(generateBubbleData());
-//         data.setData(generateScatterData());
-//         data.setData(generateCandleData());
+;
 
         mChart.setData(data);
         mChart.invalidate();
@@ -160,9 +159,9 @@ public class ChartFragment extends Fragment {
         return bd;
     }
 
-    private float getRandom(float range, float startsfrom) {
-        return (float) (Math.random() * range) + startsfrom;
-    }
+//    private float getRandom(float range, float startsfrom) {
+//        return (float) (Math.random() * range) + startsfrom;
+//    }
 
     public void setData(int data) {
         this.data = data;

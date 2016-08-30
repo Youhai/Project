@@ -8,8 +8,6 @@ import android.content.res.Configuration;
 
 public class MyInterviewProject  extends Application{
 
-    private Context context;
-    private PermissionControl permissionControl;
     @Override
     public void registerComponentCallbacks(ComponentCallbacks callback) {
         super.registerComponentCallbacks(callback);
@@ -21,7 +19,7 @@ public class MyInterviewProject  extends Application{
     public void onCreate() {
         super.onCreate();
 
-        permissionControl = PermissionControl.getPermisionControl(getApplicationContext());
+      PermissionControl.getPermisionControl(getApplicationContext());
 
     }
 

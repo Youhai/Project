@@ -1,8 +1,5 @@
 package com.google.youhai.myinterviewproject.Utilities;
 
-/**
- * Created by youhai on 8/13/16.
- */
 public class UrlController {
 
     public final static String BASE_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?";
